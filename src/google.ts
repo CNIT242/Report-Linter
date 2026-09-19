@@ -3,13 +3,11 @@ import { OAuth2Client } from 'google-auth-library';
 import * as http from 'http';
 import { URL } from 'url';
 
-const CLIENT_ID = process.env.GOOGLE_CLIENT_ID || 'YOUR_CLIENT_ID';
-const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || 'YOUR_CLIENT_SECRET';
 const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
 
 const oauth2Client = new OAuth2Client(
-  CLIENT_ID,
-  CLIENT_SECRET,
+  process.env.GOOGLE_CLIENT_ID || 'APP_CLIENT_ID',
+  process.env.GOOGLE_CLIENT_SECRET || 'APP_CLIENT_SECRET',
   REDIRECT_URI
 );
 
@@ -23,7 +21,7 @@ function getAuthCode(): Promise<string> {
       if (!req.url) return;
       const reqUrl = new URL(req.url, 'http://localhost:3000');
       const code = reqUrl.searchParams.get('code');
-
+      
       if (code) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end('<h1>Authentication successful! You can close this window.</h1>');
