@@ -6,70 +6,20 @@ import { IncomingMessage } from 'http';
 export class Logger 
 {
    sessionFile : string;
-    //masterFile : string;
    connectionFile : string;
-//    cronFile : string;
     private dirname : string; 
     constructor(init:boolean = true)
     {
         this.dirname = import.meta.dirname;
-        //const dir = this.dirname + config.get("Log.directory");
         this.sessionFile = this.dirname + process.env.LOG_SESSION;
-        //this.masterFile = dir + config.get("Log.master");
         this.connectionFile = this.dirname + process.env.LOG_CONNECTIONS;
-         
-//        this.cronFile = dir + config.get("Log.cron");
-
         
-        console.log(this.sessionFile);
-        
-        console.log(this.connectionFile);
         if(init)
             this.init();
     }
 
-    //public Ready: Promise.IThenable<any>;
     private async init() 
     {
-        //migrate session.txt to older files.
-        //const oldSessionFile = this.dirname + config.get("Log.directory") + "old/" + config.get("Log.session") + ".old-";
-
-        // try 
-        // {
-            //fs.remove(sessionFile+"."+ config.get("Log.recordCount"), (error : any) => {});
-        //     for(let i : number = <number>config.get("Log.recordCount") - 1; i > 0; i--)
-        //     {
-        //         try {
-        //             //await fs.access(oldSessionFile + i, fs.constants.R_OK | fs.constants.W_OK);   //throws on fail
-        //             //console.log(oldSessionFile + i);
-        //             await fs.rename(oldSessionFile + i, oldSessionFile + (i + 1));
-        //         } catch(error) //can't access : may not exist
-        //         { 
-        //             console.log(error); 
-        //             try {
-        //                 await fs.appendFile(oldSessionFile + i, "\n\n");
-        //             }
-        //             catch(e)
-        //             {
-        //                 console.log(e);
-        //             }
-        //         } 
-        //     }
-        //     await fs.rename(this.sessionFile, oldSessionFile + 1);
-        // }
-        // catch(error)
-        // {
-        //     console.log(error);
-        // }
-
-        // try {
-        //     await fs.access(this.sessionFile, fs.constants.R_OK | fs.constants.W_OK);   //throws on fail
-        // }
-        // catch
-        // {
-        //     await fs.writeFile(this.sessionFile,"");
-        // }
-        
         //await fs.appendFile(this.masterFile, "\n\n");
         this.message("Init Logfile");
     };
@@ -79,9 +29,7 @@ export class Logger
     {
         try {
             console.log(value);
-            await fs.appendFile(this.sessionFile, value + "\n", null); //pass null as error handleing
-            // await fs.appendFile(this.masterFile, value + "\n", null);
-            
+            await fs.appendFile(this.sessionFile, value + "\n", null); //pass null as error handleing            
         } catch (err) {
             console.log(err);
         }
@@ -89,7 +37,6 @@ export class Logger
 
     private format(type : string) : string
     {
-        //return type;
         return "["+this.date()+ " | " + type + "]  ";
     }
 
@@ -121,19 +68,8 @@ export class Logger
         }
     }
 
-    // private async writeCron(value : string)
-    // {
-    //     try {
-    //         await fs.appendFile(this.connectionFile, value + "\n", null); //pass null as error handleing
-            
-    //     } catch (err) {
-    //         console.log(err);
-    //     } 
-    // }
-
 
    private date()
-   //public date() 
    {
         const now = new Date().toUTCString();
         
