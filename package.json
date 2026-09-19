@@ -2,6 +2,7 @@
   "name": "cnit242-project",
   "version": "1.0.0",
   "description": "Google doc managemet for Purdue University, CNIT242 style Lab &amp; TPS Reports formatting.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

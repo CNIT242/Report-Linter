@@ -30,8 +30,8 @@
     "declaration": true, // Generates `.d.ts` files for type definitions
     "allowSyntheticDefaultImports": true, // Allows default imports for CommonJS modules
     "noEmit": false,
-    "allowImportingTsExtensions": false, // Allows importing `.ts` files with their extensions
-    "verbatimModuleSyntax": false, // Keeps the `import`/`export` syntax as-is without transformation
+    "verbatimModuleSyntax": true, // Keeps the `import`/`export` syntax as-is without transformation
+    "removeComments": true,
 
     // Include modern ECMAScript (ES2022) and DOM APIs for frontend
     "lib": ["ES2022", "DOM"] // Include ES2022 features and DOM APIs for frontend development
