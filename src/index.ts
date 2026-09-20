@@ -3,10 +3,10 @@ import google from "./google.js";
 import log from "./services/log.js"
 
 
+https.connections;
+
 log.message("testing");
 //log.connection("test", );
-console.log(process.env.PORT);
-console.log(process.env);
 
 console.log("tata");
 

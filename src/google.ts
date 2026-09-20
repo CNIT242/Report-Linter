@@ -3,9 +3,9 @@ import { OAuth2Client } from 'google-auth-library';
 import * as http from 'http';
 import { URL } from 'url';
 
-const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
+const REDIRECT_URI = `https://${process.env.HOST || "localhost"}/callback`;
 
-const oauth2Client = new OAuth2Client(
+export const oauth2Client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID || 'APP_CLIENT_ID',
   process.env.GOOGLE_CLIENT_SECRET || 'APP_CLIENT_SECRET',
   REDIRECT_URI
