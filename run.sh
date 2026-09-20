@@ -1,2 +1,2 @@
 #! /bin/bash
-node --env-file=.env ./dist/index.js;
+node --env-file=.env ./dist/index.js ${@};
