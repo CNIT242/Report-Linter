@@ -1,9 +1,19 @@
-import http from "./httpServer.js";
+import https from "./services/httpsServer.js";
 import google from "./google.js";
+import log from "./services/log.js"
+
+
+https.connections;
+
+log.message("testing");
+//log.connection("test", );
 
 console.log("tata");
 
-google();
+//console.log(https);
+//google();
+//google();
+
 
 
 console.log("post google");
