@@ -1,14 +1,30 @@
 import https from "./services/httpsServer.js";
 import google from "./google.js";
 import log from "./services/log.js"
+import { exit } from "node:process";
 
+//parse arguments (skipping "/path/to/node" & "/project/path" arguments)
 for (let i = 2; i < process.argv.length; ++i) {
-    console.log(
-        `index ${i} 
-        argument -> 
-        ${process.argv[i]}
-        `
-    );
+    switch(process.argv[i])
+    {
+        case "--generate":
+        case "-g":
+            {
+                break;
+            }
+        case "--help":
+        case "?":
+            {
+                console.log(
+`
+-g --generate
+        attempt to generate postgres schema structure
+`
+                );
+                
+                process.exit();
+            }
+    }
 }
 
 https.connections;
