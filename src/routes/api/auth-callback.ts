@@ -1,5 +1,5 @@
 import Express from "express";
-import log from "../services/log.js";
+import log from "../../services/log.js";
 
 const router = Express.Router();
 
