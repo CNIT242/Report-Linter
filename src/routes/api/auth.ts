@@ -1,7 +1,7 @@
 import Express from "express";
-import log from "../services/log.js";
+import log from "../../services/log.js";
 
-import {oauth2Client} from "../google.js";
+import {oauth2Client} from "../../google.js";
 
 const router = Express.Router();
 
