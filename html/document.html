@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Document Editor</title>
+
+  <link
+    rel="stylesheet"
+    href="/editor/site.css"
+  >
+</head>
+
+<body>
+
+  <header
+    id="toolbar"
+    class="toolbar"
+  >
+    <div class="toolbar-group">
+      <button
+        id="highlight"
+        type="button"
+        class="toolbar-button"
+      >
+        Highlight
+      </button>
+
+      <button
+        id="clear-highlight"
+        type="button"
+        class="toolbar-button"
+      >
+        Clear Highlight
+      </button>
+
+      <button
+        id="debug"
+        type="button"
+        class="toolbar-button"
+      >
+        Debug
+      </button>
+
+      <button
+        id="refresh"
+        type="button"
+        class="toolbar-button"
+      >
+        Refresh
+      </button>
+    </div>
+
+    <div
+      id="sync-status"
+      class="sync-status status-saved"
+    >
+      Saved
+    </div>
+  </header>
+
+  <div class="workspace">
+
+    <aside
+      id="section-sidebar"
+      class="section-sidebar"
+    ></aside>
+
+    <main
+      class="document-shell"
+    >
+      <div
+        id="document"
+        class="document"
+      ></div>
+    </main>
+
+    <aside
+      id="problem-board"
+      class="problem-board"
+    >
+      <div
+        class="problem-board-header"
+      >
+        <div>
+          <h2>Problems</h2>
+
+          <span
+            id="problem-count"
+            class="problem-count"
+          >
+            0
+          </span>
+        </div>
+
+        <div
+          id="problem-summary"
+          class="problem-summary"
+        >
+          0 errors · 0 warnings
+        </div>
+      </div>
+
+      <div
+        id="problem-list"
+        class="problem-list"
+      ></div>
+    </aside>
+
+  </div>
+
+  <div
+    id="rules-modal"
+    class="modal hidden"
+  >
+    <div class="modal-content">
+
+      <h2>Section Rules</h2>
+
+      <label>
+        <input
+          id="rule-required"
+          type="checkbox"
+        >
+        Required section
+      </label>
+
+      <label>
+        <input
+          id="rule-allow-empty"
+          type="checkbox"
+        >
+        Allow empty paragraphs
+      </label>
+
+      <label>
+        <input
+          id="rule-allow-selectors"
+          type="checkbox"
+        >
+        Allow dropdown selectors
+      </label>
+
+      <div class="modal-actions">
+        <button
+          id="rules-cancel"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          id="rules-save"
+          type="button"
+        >
+          Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script
+    type="module"
+    src="/editor/js/app.js"
+  ></script>
+
+</body>
+</html>
